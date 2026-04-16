@@ -191,21 +191,29 @@ $+,-,\times,\div$ 在$F[\lambda]$中均可,称为域
 若 $U(\lambda) V(\lambda)=I_n, U(\lambda),V(\lambda)\in F^{n\times n}[\lambda]$ 称$U(\lambda)$为单位模阵
 $U(\lambda)\in F^{n\times n}[\lambda]$为单位模阵 $\Leftrightarrow \det(U(\lambda))\in F$ 为零次多项式(非零多项式)
 
-# 书签（少了一页）
-
 $A(\lambda)$ 可经有限个初等行列化成 $B(\lambda)$ 称其等价，记为 $A(\lambda) \sim B(\lambda)$
 
-设 $A$ 中 $a_{11} \neq 0$, 且 $A$ 中至少有一个元素不能被 $a_{11}(\lambda)$ 整除
+设 $A(\lambda)$ 中 $a_{11}(\lambda) \neq 0$, 且 $A(\lambda)$ 中至少有一个元素不能被 $a_{11}(\lambda)$ 整除
 
-则 $A(\lambda) \sim B(\lambda)$, $b_{11} \neq 0$, $012(b_{11}a_1) < \partial(a_{11}a_1)$
+则 $A(\lambda) \sim B(\lambda)$, $b_{11}(\lambda) \neq 0$, $\partial(b_{11}(\lambda)) < \partial(a_{11}(\lambda))$
 
-$A(\lambda) \in F^{m \times n}$, $A(\lambda) \sim [d_1(\lambda) d_2(\lambda) \cdots d_r(\lambda)] 0 0$
+$A(\lambda) \in F^{m \times n}$, $A(\lambda) \sim \left[
+\begin{array}{c|c}
+\begin{matrix}
+d_1(\lambda) & & 0 \\
+& \ddots & \\
+0 & & d_r(\lambda)
+\end{matrix} & \Large{0}_{r \times (n-r)} \\
+\hline
+\Large{0}_{(m-r) \times r} & \Large{0}_{(m-r) \times (n-r)}
+\end{array}
+\right]_{m \times n}$
 
-其中：$d_i(\lambda)$ 内非0多项式，满足 $d_1(\lambda)$ 整除 $d_{i+1}(\lambda)$，记为 $d_i(\lambda) \mid d_{i+1}(\lambda)$
+其中：$d_i(\lambda)$ 为非0多项式，满足 $d_1(\lambda)$ 整除 $d_{i+1}(\lambda)$，记为 $d_i(\lambda) \mid d_{i+1}(\lambda)$
 
 Smith型具有唯一性
 
-$A(\lambda)$ 的 $k$ 阶行列式因子是指 $A(\lambda)$ 的所有 $k$ 阶子式有 $C_m^k$, $C_n^k$ 个
+$A(\lambda)$ 的 $k$ 阶行列式因子是指 $A(\lambda)$ 的所有 $k$ 阶子式的首一最大公因式$k$ 阶子式有 $C_m^k$ $C_n^k$ 个
 
 若 $A(\lambda) \sim B(\lambda)$ 则其各阶行列式因子分别相同
 
@@ -213,25 +221,13 @@ $A(\lambda)$ 的 $k$ 阶行列式因子是指 $A(\lambda)$ 的所有 $k$ 阶子�
 
 称 $d_i(\lambda)$ 为 $A(\lambda)$ 的不变因子
 
-（或 |）幺实或为正交矩阵
-
-若 $A^H A = A A^H = I$ 则 $A$ 为酉矩阵，则 $\det A = 1$
+若 $A^H A = A A^H = I$ 则 $A$ 为酉(或幺)矩阵，则 $|\det A| = 1$
 
 $A^H$ 共轭转置，在实数域即为 $A^T$
 
 幺矩阵的Smith标准型为 $I$，可写为有限个初等矩阵的乘积
 
-$E \in F^{m \times n}$ 幺矩阵
-
-若 $A^H M(\lambda)$ 则 $H V A(\lambda) \in F^{m \times m}$, $D V U \in F^{n \times n}$
-
-$V V A(\lambda) = B V$
-
-补页的结束
-
----
-
-
+若 $A(\lambda) \sim B(\lambda)\in F^{m \times n}$ 则 $\exists 幺矩阵U(\lambda) \in F^{m \times m}$, $V\in F^{n \times n}，st.U(\lambda)A(\lambda)V(\lambda) = B(\lambda)$
 
 $A\in F^{n\times n}$, 称 $\lambda I_n-A$ 为 $A$ 的特征矩阵
 $A$与$B$相似当且仅当 $\lambda I-A\sim\lambda I-B\in F[\lambda]$
@@ -250,24 +246,112 @@ $A(\lambda)\in F^{m\times m}[\lambda]$, $\partial(A(\lambda))=q\geqslant 1, B(\l
 
 $\operatorname{rank}(\lambda I-A)$ 为$n$则 $\deg(\det(\lambda I-A))=n$
 
-#书签（待校对）
+对于 $\lambda I - A$ 的 Smith 型，可化为有 $p$ 个不为常数的不变因子 $h_i(\lambda)$，其 Smith 型可化为对角形式，每个子块相应于一个非常数不变因子，并配以若干个常数不变因子，使子块的秩恰为该不变因子的次数
 
-$\lambda I-A$的Smith型,可有k个不为常数的不变因子其smith型可化为k个对角形式,每个子块相应于一个非常数不变因子,并配以若干个常数不变因子,使子块的rank恰为该不变因子的次数
-即smith型等价
+> 有点Jordan块的感觉
 
-设 $A\in F^{n\times n}$, $\lambda I-A$ 的初等因子是将 $\lambda I-A$ 的所有不变因子在$F[\lambda]$中作质因式分解时出现的质因式的方幂,若同一质因式的方幂若出现多次,则算作多个初等因子,所有初等因子的全体称为初等因子组
+即 Smith 型等价于
+$$
+\left[
+\begin{array}{cccc|cccc|c|cccc}
+1 &        &        &        &        &        &        &        &        &        &        &        \\
+  & \ddots &        &        &        &        &        &        &        &        &        &        \\
+  &        & 1      &        &        &        &        &        &        &        &        &        \\
+  &        &        & h_1(\lambda)    &        &        &        &        &        &        &        &        \\ \hline
+  &        &        &        & 1      &        &        &        &        &        &        &        \\
+  &        &        &        &        & \ddots &        &        &        &        &        &        \\
+  &        &        &        &        &        & 1      &        &        &        &        &        \\
+  &        &        &        &        &        &        & h_2(\lambda)    &        &        &        &        \\ \hline
+  &        &        &        &        &        &        &        & \ddots &        &        &        \\ \hline
+  &        &        &        &        &        &        &        &        & 1      &        &        &        \\
+  &        &        &        &        &        &        &        &        &        & \ddots &        &        \\
+  &        &        &        &        &        &        &        &        &        &        & 1      &        \\
+  &        &        &        &        &        &        &        &        &        &        &        & h_p(\lambda) \\
+\end{array}
+\right]
+$$
+称为 $\lambda I - A$ 的第一等价规范型
 
+设 $A \in F^{n \times n}$，$\lambda I - A$ 的初等因子：将 $\lambda I - A$ 的所有不变因子在 $F[\lambda]$ 中作质因式分解时出现的质因式的方幂，若同一质因式的方幂若出现多次，则算作多个初等因子，所有初等因子的全体称为初等因子组
+
+**e.g.** 设 $\lambda I - A$ 的 Smith 型如下
+$$
+\begin{bmatrix}
+d_1(\lambda) & & & \\
+& d_2(\lambda) & & \\
+& & \ddots & \\
+& & & d_n(\lambda)
+\end{bmatrix}
+$$
+记$d_n(\lambda) = (e_1(\lambda))^{r_{n1}} (e_2(\lambda))^{r_{n2}} \cdots (e_p(\lambda))^{r_{np}}$,其中 $e_k(\lambda)$ 为不可约多项式
+
+则必有
+$$
+d_i(\lambda) = (e_1(\lambda))^{r_{i1}} (e_2(\lambda))^{r_{i2}} \cdots (e_p(\lambda))^{r_{ip}},\quad i=1,\dots,n
+$$
+且
+$$
+0 \le r_{1k} \le r_{2k} \le \cdots \le r_{nk},\quad i=1,\dots,n-1,\; k=1,\dots,p
+$$
+
+则初等因子组为
+$$
+\{ e_k(\lambda)^{r_{ik}} \mid r_{ik} \ge 1,\; i=1,\dots,n;\; k=1,\dots,p \}
+$$
+其中多次出现的重复计入，$e_k(\lambda)$ 次数为 1 次或 2 次（$\mathbb{R}$ 与 $\mathbb{C}$ 域的差别）。
+
+特征矩阵的不变因子组和初等因子组相互唯一决定
+
+e.g. 将所有初等因子按质因式分组，组内按降幂排列：
+
+$\lambda^3,\; \lambda^2,\; \lambda$
+$(\lambda+1)^2,\; (\lambda+1)$
+$(\lambda+2)$
+
+同一列的抄下来即可，
+$$
+\begin{aligned}
+d_3 &= \lambda^3 (\lambda+1)^2 (\lambda+2) \\
+d_2 &= \lambda^2 (\lambda+1) \\
+d_1 &= \lambda
+\end{aligned}
+$$
+
+设 $f_1(x), f_2(x) \in F[\lambda]$ 互质，$n_1 + n_2 = n$，则
+$$
+\left[
+\begin{array}{cc}
+I_{n_1} & 0 \\
+0 & f_1(x) f_2(x) I_{n_2}
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{cc}
+f_1(x) I_{n_1} & 0 \\
+0 & f_2(x) I_{n_2}
+\end{array}
+\right]
+$$
 基于初等因子的规范型
-设 $\lambda I-A$ 的初等因子组为 $(p_1(\lambda))^{r_1},(p_2(\lambda))^{r_2},\ldots,(p_q(\lambda))^{r_q}$
-次数为 $m_k=r_k\cdot\deg(p_k(\lambda)), k=1,\cdots,q$ 则 $\lambda I-A$ 等价于
-$\operatorname{diag}(p_1(\lambda)^{r_1},p_2(\lambda)^{r_2},\ldots,p_q(\lambda)^{r_q},1,\ldots,1)$
-称为 $\lambda I-A$ 的第三等价规范型
 
-对于$A,B\in F^{n\times n}$下列条件等价:
-①A相似于B
-② $\lambda I-A$ 与 $\lambda I-B$ 作为多项式矩阵等价
-③A与B有相同的各阶行列式因子
-④A与B有相同的各阶不变因子
-⑤A与B有相同的初等因子组
+设 $\lambda I - A$ 的初等因子组为
+$$
+\{ (e_k(\lambda))^{r_{k}} \mid k = 1, \dots, q\}
+$$
+其中 $e_k(\lambda)$ 为互异的首一不可约多项式，其次数为
+$$
+m_k=\deg(e_k(\lambda))r_k, \quad k = 1, \dots, q.
+$$
+对于 $A, B \in M_n(\mathbb{F})$，下列条件等价：
 
-任一矩阵与其转置相似
+① $A$ 相似于 $B$。
+
+② $\lambda I - A$ 与 $\lambda I - B$ 作为 $\mathbb{F}[\lambda]$ 上的多项式矩阵等价。
+
+③ $\lambda I - A$ 与 $\lambda I - B$ 有相同的 Smith 标准型（第二规范型）。
+
+④ $\lambda I - A$ 与 $\lambda I - B$ 有相同的各阶行列式因子/初等因子组/不变因子（第三规范型）
+
+任一方阵与其转置相似。
+
