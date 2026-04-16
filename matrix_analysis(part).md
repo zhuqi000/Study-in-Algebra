@@ -86,7 +86,7 @@ $\dim(\ker A) = n - \dim(\operatorname{im} A)$。
 
 $\operatorname{im}  = \{ A\mathbf{x} \mid \mathbf{x} \in F^n \} $，称为 $A$ 的**像**。
 
-称 $\operatorname{span}\{\alpha_1, \ldots, \alpha_t\} = \{ \alpha_1 k_1 + \alpha_2 k_2 + \cdots + \alpha_t k_t \mid k_i \in F, i=1,\ldots,t \}$ 为 $\alpha_1, \cdots, \alpha_t$ **张成的子空间** $W$。
+称 $\operatorname{span}\{\alpha_1, \ldots, \alpha_t\} = \{ \alpha_1 k_1 + \alpha_2 k_2 + \cdots + \alpha_t k_t \mid k_i \in F, i=1,\ldots,t \}$ 为 $\alpha_1, \cdots, \alpha_t$ **张成的子空间** $W$
 
 若由 $W$ 找到 $\alpha_1, \cdots, \alpha_n$，称 $\alpha_i$ 为 $W$ 的一个**生成组**。
 
@@ -153,64 +153,104 @@ $A, B\in F^{m\times n}$, 若 $\exists P\in F^{n\times n}, Q\in F^{m\times m}$, $
 
  $AP=QB$ 可视为$A$为映射$ P$为入口基, $Q$为出口基,则$B$为$ A$在这对基下的矩阵表示
 
-# 书签
-
 设 $A\in F^{m\times n}$, $W\oplus ker A= F^n$ 记 $\mathcal{A}(W)=\{Ax\mid x\in W\}$ 则$\mathcal{A}(W)=\operatorname{im}A$, $\dim W=\operatorname{rank} A=\dim(\mathcal{A}(W))$
 
 给定 $A\in F^{m\times n}$, $\operatorname{rank} A=r$, $W\oplus\operatorname{ker} A=F^n$, $U\oplus\operatorname{im} A= F^m$
-$p_1, p_2,... p_r$为W的基, $q_{r+1},..., q_m$为 $U$ 的基 $\operatorname{ker} A$ 的基为 $p_{r+1},\cdots, p_n$
+$p_1, p_2,... p_r$为$W$的基, $q_{r+1},..., q_m$为 $U$ 的基, $\operatorname{ker} A$ 的基为 $p_{r+1},\cdots, p_n$
 $p_1,\cdots p_n$ 为 $F^n$ 的基, $A(p_1)\cdots A(p_r), q_{r+1}\cdots q_m$ 为 $F^m$ 的基过渡表示矩阵为 $\begin{bmatrix} I_r & 0 \\ 0 & 0_{m-r,n-r} \end{bmatrix}$
 
-$AP=PB$, A,B相似, P非奇异
+$AP=PB$, $A$,$B$相似, $P$非奇异
 
-若 $A W\subseteq W$, 则W为A的不变子空间
+若 $A W\subseteq W$, 则$W$为$A$的不变子空间
 $\operatorname{ker} A, \operatorname{im} A, \{0\}, F^n$ 均是
 
 $\begin{bmatrix} B_{11}& B_{12}\\ B_{21}& B_{22} \end{bmatrix}$
 设 $P^{-1} A P=B, P=[P_1\quad P_2], B=$
-$B_{21}=0$, 当且仅当 $\operatorname{im} P_1$ 为A的不变子空间
-$B_{12}=0$
-
-$B_{12}=0$ $\operatorname{im} P_2$
+$B_{21}=0$, 当且仅当 $\operatorname{im} P_1$ 为$A$的不变子空间
+$B_{12}=0$,$\operatorname{im} P_2$同理
 
 基于 $\operatorname{ker} A,\operatorname{im} A$ 可将 $A$ 三角化
 
-$\dim(\operatorname{ker} A)=n-r$, $\quad$ $\quad$ $\quad \operatorname{rank} A=r$. 取 kerA的基 $p_1\cdots p_{n-r}$
-扩充为 $[P_1, P_2]$ 则 $A[P_1; P_2]=[P_1, P_2]\begin{bmatrix} 0 & 0 \\ 0 & B_{22} \end{bmatrix}$
-$P_1\quad P_2$
+$\dim(\operatorname{ker} A)=n-r$,  $\operatorname{rank} A=r$. 取$kerA$的基 $p_1\cdots p_{n-r}$
+扩充为 $[P_1, P_2]$ 则 $A[P_1, P_2]=[P_1, P_2]\begin{bmatrix} 0 & B_{12} \\ 0 & B_{22} \end{bmatrix}$
 
-$P_1\quad P_2$ 同理对 $\operatorname{im} A$ 有 $A[Q_1! Q_2]=[Q_1; Q_2]\begin{bmatrix} B_{11}& B_{12}\\ 0& 0 \end{bmatrix}$
+同理对 $\operatorname{im} A$ 有 $A[Q_1,Q_2]=[Q_1,Q_2]\begin{bmatrix} B_{11}& B_{12}\\ 0& 0 \end{bmatrix}$
 
-特征向量即为一个不变空间
+特征向量子空间即为一个不变空间
 $AP=P\Lambda$: n阶矩阵可相似对角化等价于存在n个互补的一维空间
 
-$V_n, A\in C^{n\times n}, \exists\lambda\in C$, $p\in C^n$, $p\neq 0$, $A p=p\cdot\lambda$
+$\forall n, A\in C^{n\times n}, \exists\lambda\in C$, $p\in C^n$, $p\neq 0$, $A p=p\cdot\lambda$
 
 Schur定理:复矩阵恒能相似上三角化
 
 $F[\lambda]$表示系数在F中的多项式的全体
 $F(\lambda)$表示数在F中的$\lambda$的有理分式的全体
-$F[x](F[x])$
-为环, $+,-,\times$ 在$F[\lambda]$中总能进行,但除不一定,称其为整环
-$+,-,\times,\div$ 在$F(\lambda)$中均可,称为域
+$+,-,\times$ 在$F[\lambda]$中总能进行,但除不一定,称其为环
+$+,-,\times,\div$ 在$F[\lambda]$中均可,称为域
 
-若, $U(\lambda) U^{-1}(\lambda)=I_n, U(\lambda)\in$ 称$U(\lambda)$为单位模阵
-$U(\lambda)\in F^{m\times n}[\lambda]$为单位模阵 $\Leftrightarrow \det(U(\lambda))\in F$ 为非零常数(非零多项式)
+若 $U(\lambda) V(\lambda)=I_n, U(\lambda),V(\lambda)\in F^{n\times n}[\lambda]$ 称$U(\lambda)$为单位模阵
+$U(\lambda)\in F^{n\times n}[\lambda]$为单位模阵 $\Leftrightarrow \det(U(\lambda))\in F$ 为零次多项式(非零多项式)
+
+# 书签（少了一页）
+
+$A(\lambda)$ 可经有限个初等行列化成 $B(\lambda)$ 称其等价，记为 $A(\lambda) \sim B(\lambda)$
+
+设 $A$ 中 $a_{11} \neq 0$, 且 $A$ 中至少有一个元素不能被 $a_{11}(\lambda)$ 整除
+
+则 $A(\lambda) \sim B(\lambda)$, $b_{11} \neq 0$, $012(b_{11}a_1) < \partial(a_{11}a_1)$
+
+$A(\lambda) \in F^{m \times n}$, $A(\lambda) \sim [d_1(\lambda) d_2(\lambda) \cdots d_r(\lambda)] 0 0$
+
+其中：$d_i(\lambda)$ 内非0多项式，满足 $d_1(\lambda)$ 整除 $d_{i+1}(\lambda)$，记为 $d_i(\lambda) \mid d_{i+1}(\lambda)$
+
+Smith型具有唯一性
+
+$A(\lambda)$ 的 $k$ 阶行列式因子是指 $A(\lambda)$ 的所有 $k$ 阶子式有 $C_m^k$, $C_n^k$ 个
+
+若 $A(\lambda) \sim B(\lambda)$ 则其各阶行列式因子分别相同
+
+记 $A(\lambda)$ 的 $k$ 阶行列式因子为 $D_k(\lambda)$ 则 $D_k(\lambda) = d_1(\lambda) \cdots d_k(\lambda)$
+
+称 $d_i(\lambda)$ 为 $A(\lambda)$ 的不变因子
+
+（或 |）幺实或为正交矩阵
+
+若 $A^H A = A A^H = I$ 则 $A$ 为酉矩阵，则 $\det A = 1$
+
+$A^H$ 共轭转置，在实数域即为 $A^T$
+
+幺矩阵的Smith标准型为 $I$，可写为有限个初等矩阵的乘积
+
+$E \in F^{m \times n}$ 幺矩阵
+
+若 $A^H M(\lambda)$ 则 $H V A(\lambda) \in F^{m \times m}$, $D V U \in F^{n \times n}$
+
+$V V A(\lambda) = B V$
+
+补页的结束
+
+---
+
+
 
 $A\in F^{n\times n}$, 称 $\lambda I_n-A$ 为 $A$ 的特征矩阵
-A与B相似当且仅当 $\lambda I-A\sim\lambda I-B\in F[\lambda]$
+$A$与$B$相似当且仅当 $\lambda I-A\sim\lambda I-B\in F[\lambda]$
 
 零多项式矩阵次数规定为无穷
 零多项式≠零次多项式
 
-非零多项式矩阵 $A(\lambda)\in F[\lambda]$, $A(\lambda)=A_0+A_1\lambda+...+A_q\lambda^q$ 若$A_q\neq 0$则称$A(\lambda)$次数为$q$,记为:$\deg(A(\lambda))$或$\partial(A(\lambda))$
+非零多项式矩阵 $A(\lambda)\in F^{m\times n}[\lambda]$, $A(\lambda)=A_0+A_1\lambda+...+A_q\lambda^q$ 若$A_q\neq 0$则称$A(\lambda)$次数为$q$,记为:$\deg(A(\lambda))$或$\partial(A(\lambda))$
 
-设 $A(\lambda)\in F^{m\times m}[\lambda]$, $B(\lambda)\in F^{m\times n}[\lambda]$ 且 $A(\lambda)B(\lambda)=C(\lambda)$ 若$A(\lambda)=A_0+A_1\lambda+...+A_q\lambda^q$ 若$A_q$非奇异,则 $\deg(C(\lambda))=q+\deg(B(\lambda))$
+设 $A(\lambda)\in F^{m\times m}[\lambda]$, $B(\lambda),C(\lambda)\in F^{m\times n}[\lambda]$ 且 $A(\lambda)B(\lambda)=C(\lambda)$ 若$A(\lambda)=A_0+A_1\lambda+...+A_q\lambda^q$ 若$A_q$非奇异,则 $\deg(C(\lambda))=q+\deg(B(\lambda))$
 
-$A(\lambda)\in F^{m\times m}[\lambda]$, $\partial(A(\lambda))=q\geqslant 1, B(\lambda)\in F^{m\times n}[\lambda]$ 则存在唯一的 $Q(\lambda), R(\lambda)$, 使 $B(\lambda)=A(\lambda)Q(\lambda)+R(\lambda)$
+$A(\lambda)\in F^{m\times m}[\lambda]$, $\partial(A(\lambda))=q\geqslant 1, B(\lambda)\in F^{m\times n}[\lambda]$ 则存在唯一的 $Q(\lambda), R(\lambda)$, 使$B(\lambda)=A(\lambda)Q(\lambda)+R(\lambda)$
 且 $R(\lambda)=0$ 或 $\deg(R(\lambda))<\deg(A(\lambda))$
 
-$\operatorname{rank}(\lambda I-A)$ 为n则 $\deg(\det(\lambda I-A))=n$
+> 一元多项式环的通用性质
+
+$\operatorname{rank}(\lambda I-A)$ 为$n$则 $\deg(\det(\lambda I-A))=n$
+
+#书签（待校对）
 
 $\lambda I-A$的Smith型,可有k个不为常数的不变因子其smith型可化为k个对角形式,每个子块相应于一个非常数不变因子,并配以若干个常数不变因子,使子块的rank恰为该不变因子的次数
 即smith型等价
